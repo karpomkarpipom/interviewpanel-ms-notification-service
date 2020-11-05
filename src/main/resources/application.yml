@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: interviewpanel-ms-notification-service
+#  kafka:
+#    consumer:
+#      group-id: ms_mail_consumer
+#    bootstrap-servers: localhost:9092
+#    topic:
+#      userCreated: USER_CREATED_TOPIC
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers:
+          - http://18.188.152.98:9092
+      bindings:
+        usercreated:
+          destination: USER_CREATED_TOPIC
+        newquestionposted:
+          destination: NEW_QUESTIONS_POSTED_TOPIC
+
+           
+   
+  data: 
+    mongodb: 
+      authentication-database: admin
+      username: selva
+      password: selva
+      database: test
+      port: 27017
+      host: localhost
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: interviewpanelteam
+    password: interviewpanel
+    properties.mail.smtp:
+      auth: true
+      starttls.enable: true
+security:
+  basic:
+    enabled: false
+server:
+  port: 8084
+  
+email:
+  subject: Welcome to Interviewpanel.
