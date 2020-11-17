@@ -65,6 +65,7 @@ public class EmailServiceImpl implements EmailService {
                               "OTP is confidential, do not share this  with anyone.</body>";
             //message.setContent(htmlMsg, "text/html");
             message.setHeader("Content-ID", "<logoimg>");
+            message.addHeader("X-Priority", "1");
             message.setContent
             ("<table width=\\\"600\\\" border=\\\"0\\\" cellspacing=\\\"0\\\" cellpadding=\\\"0\\\">  <tr>    "
 					+ "<td><b>WELCOME TO INTERVIEWPANEL</b></td>  </tr>  <tr>    "
@@ -72,7 +73,7 @@ public class EmailServiceImpl implements EmailService {
 					+ "<p>This site is useful for update the interview questions and answers. "
 					+ "Also the users can add their own experienced interview questions and answers !  </p>   "
 					+ "<p>Username: "+ input.getEmail() +"<br />      Password: *********</p>    <p>To confirm your email click <a href=\\\"#\\\">here</a>.</p></td>  </tr>  <tr>    "
-					+ "<td height=\\\"50\\\" align=\\\"center\\\" valign=\\\"middle\\\" bgcolor=\\\"#CCCCCC\\\">www.interviewpanel.ga | contact@interviewpanel.ga | +1000-000-0000</td>  </tr></table>", 
+					+ "<td height=\\\"50\\\" align=\\\"center\\\" valign=\\\"middle\\\" bgcolor=\\\"#CCCCCC\\\">www.interviewpanel.gq | interviewpanelteam@gmail.com | +1000-000-0000</td>  </tr></table>", 
              "text/html");
             helper.setTo(input.getEmail());
             helper.setSubject(emailSubject);
@@ -97,6 +98,7 @@ public class EmailServiceImpl implements EmailService {
 
             MimeMessageHelper helper = new MimeMessageHelper(message, false, "utf-8");
             message.setHeader("Content-ID", "<logoimg>");
+            message.addHeader("X-Priority", "1");
             message.setContent
             ("<table width=\\\"600\\\" border=\\\"0\\\" cellspacing=\\\"0\\\" cellpadding=\\\"0\\\">  <tr>    "
 					+ "<td><b>NEW QUESTIONS POSTED TO INTERVIEWPANEL</b></td>  </tr>  <tr>    "
@@ -104,10 +106,10 @@ public class EmailServiceImpl implements EmailService {
 					+ "<p>Please login to website and check the latest questions. "
 					+ "Also the users can add their own experienced interview questions and answers !  </p>   "
 					+ "</td>  </tr>  <tr>    "
-					+ "<td height=\\\"50\\\" align=\\\"center\\\" valign=\\\"middle\\\" bgcolor=\\\"#CCCCCC\\\">www.interviewpanel.ga | contact@interviewpanel.ga | +1000-000-0000</td>  </tr></table>", 
+					+ "<td height=\\\"50\\\" align=\\\"center\\\" valign=\\\"middle\\\" bgcolor=\\\"#CCCCCC\\\">www.interviewpanel.gq | interviewpanelteam@gmail.com | +1000-000-0000</td>  </tr></table>", 
              "text/html");
             helper.setTo(usersList);
-            helper.setSubject(emailSubject);
+            helper.setSubject("Update from Interviewpanel!");
             result="success";
             emailSender.send(message);
         } catch (MessagingException e) {

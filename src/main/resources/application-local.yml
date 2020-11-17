@@ -12,7 +12,7 @@ spring:
       kafka:
         binder:
           brokers:
-          - http://18.188.152.98:9092
+          - http://localhost:9092
       bindings:
         usercreated:
           destination: USER_CREATED_TOPIC
